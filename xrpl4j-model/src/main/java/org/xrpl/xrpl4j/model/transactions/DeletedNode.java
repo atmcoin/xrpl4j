@@ -2,10 +2,12 @@ package org.xrpl.xrpl4j.model.transactions;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import org.immutables.value.Value;
 
+import java.util.Map;
 import java.util.Optional;
 
 /**
@@ -21,11 +23,11 @@ import java.util.Optional;
 public interface DeletedNode extends AffectedNode {
     
   /**
-   * {@link FinalField}s contain the fields of the objects affected by the {@link DeletedNode}.
+   * {@link FinalFields}s contain the fields of the objects affected by the {@link DeletedNode}.
    * 
    * @return The content fields of the ledger object immediately before it was deleted. 
    */
   @JsonProperty("FinalFields")
-  Optional<FinalFields> finalFields();
+  Optional<Map<String, Object>> finalFields();
 
 }

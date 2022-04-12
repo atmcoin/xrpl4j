@@ -2,11 +2,13 @@ package org.xrpl.xrpl4j.model.transactions;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import org.immutables.value.Value;
 import org.xrpl.xrpl4j.model.client.common.LedgerIndex;
 
+import java.util.Map;
 import java.util.Optional;
 
 /**
@@ -27,7 +29,7 @@ public interface ModifiedNode extends AffectedNode {
    * @return The content fields of the ledger object after applying any changes from this transaction. 
    */
   @JsonProperty("FinalFields")
-  Optional<FinalFields> finalFields();
+  Optional<Map<String, Object>> finalFields();
   
   /**
    * The previous values for all fields of the object that were changed as a result of this transaction.
@@ -35,7 +37,7 @@ public interface ModifiedNode extends AffectedNode {
    * @return The previous values for all fields of the object that were changed as a result of this transaction.
    */
   @JsonProperty("PreviousFields")
-  Optional<PreviousFields> previousFields();
+  Optional<Map<String, Object>> previousFields();
   
   /**
    * The identifying hash of the previous transaction to modify this ledger object.

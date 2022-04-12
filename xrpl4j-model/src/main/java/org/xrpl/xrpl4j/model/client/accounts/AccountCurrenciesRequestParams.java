@@ -24,6 +24,11 @@ import javax.annotation.Nullable;
 @JsonDeserialize(as = ImmutableAccountCurrenciesRequestParams.class)
 public interface AccountCurrenciesRequestParams extends XrplRequestParams {
 
+  /**
+   * Construct a builder.
+   *
+   * @return {@link ImmutableAccountCurrenciesRequestParams.Builder}
+   */
   static ImmutableAccountCurrenciesRequestParams.Builder builder() {
     return ImmutableAccountCurrenciesRequestParams.builder();
   }
